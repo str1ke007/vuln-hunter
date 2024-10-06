@@ -96,3 +96,17 @@ No vulnerabilities found for Apache 2.4.29.
 ## ⚙️ Configuration
 ```remove.txt```:
 This file contains a list of service substrings to exclude from the final parsed service list. Add unwanted services (e.g., ```httpd``` or ```smbd```) to the file, and VulnHunter will remove them during output parsing.
+
+---
+
+## 📝 To-Do
+
+- Implement additional output formats (JSON, CSV).
+- Add more detailed vulnerability filtering options.
+- Explore integration with external APIs for live vulnerability data.
+
+---
+
+## 🛡️ Disclaimer
+
+This tool is intended for legal use only. The authors take no responsibility for any misuse or damage caused by this tool. Please ensure you have proper authorization before scanning any network or system.
