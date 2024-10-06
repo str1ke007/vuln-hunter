@@ -63,3 +63,36 @@ To start scanning a target, run VulnHunter as follows:
 
 ```bash
 python vuln_hunter.py
+```
+
+---
+
+You will be prompted to enter an IP, host, or domain to scan. VulnHunter will then run two simultaneous Nmap scans:
+
+    Service detection scan: Detects running services and versions.
+    Ports scan: Displays open ports and corresponding services.
+
+Once the services and versions are detected, VulnHunter will use SearchSploit to search for known vulnerabilities associated with those services.
+## Example Output:
+```bash
+Running nmap scans on 192.168.1.1...
+
+Nmap Ports Scan (Services running on various ports):
+22/tcp  open   ssh    OpenSSH 7.9p1
+80/tcp  open   http   Apache 2.4.29
+3306/tcp open  mysql  MySQL 5.7.26
+
+Parsing nmap version scan results...
+Searching vulnerabilities for OpenSSH 7.9p1...
+Vulnerabilities found for OpenSSH 7.9p1:
+- OpenSSH 7.9p1 - Remote Code Execution (exploit/path)
+- OpenSSH < 7.9p1 - Local Privilege Escalation (exploit/path)
+
+No vulnerabilities found for Apache 2.4.29.
+```
+
+---
+
+## ⚙️ Configuration
+```remove.txt```:
+This file contains a list of service substrings to exclude from the final parsed service list. Add unwanted services (e.g., ```httpd``` or ```smbd```) to the file, and VulnHunter will remove them during output parsing.
