@@ -1,107 +1,60 @@
 # VulnHunter 🔎
 
 **VulnHunter** is a powerful multi-threaded vulnerability scanning tool designed to streamline the process of identifying exposed services, their versions, and known vulnerabilities for a given IP, host, or domain. With integrated Nmap scanning and SearchSploit querying, VulnHunter provides efficient results, helping cybersecurity enthusiasts, network administrators, and penetration testers stay ahead of potential threats.
+# Comprehensive Vulnerability Scanner
 
----
+## Description
+A comprehensive vulnerability scanner that utilizes Nmap and the Vulscan NSE script to identify open ports and their associated vulnerabilities. This tool supports scanning using various vulnerability databases and provides detailed output for each identified issue.
 
-## 🚀 Features
-- **Multi-threaded scanning**: Runs multiple Nmap scans simultaneously to detect open ports and service versions for faster results.
-- **Service and version detection**: Automatically detects and parses service names and versions using Nmap's version detection.
-- **Vulnerability search**: Uses SearchSploit to search for known vulnerabilities based on the identified services and versions.
-- **Custom service filtering**: Remove unwanted service names or substrings using a custom `remove.txt` file.
-- **Color-coded output**: Easily identify important information through the use of color-coded results in the terminal.
-- **Cross-platform**: Runs on most Linux-based systems with Python and required tools installed.
+## Features
+- Scan IP addresses or domain names for open ports.
+- Utilize multiple vulnerability databases:
+  - scipvuldb.csv
+  - securityfocus.csv
+  - xforce.csv
+  - exploitdb.csv (default)
+  - openvas.csv
+  - securitytracker.csv
+  - osvdb.csv
+- Enable verbose output for detailed scan information.
+- Parse and display vulnerability information in a user-friendly format.
 
----
+## Requirements
+- Python 3.x
+- Nmap
+- Colorama
+- Other dependencies (if any)
 
-## 📜 Requirements
-
-To run **VulnHunter**, you'll need the following:
-
-- **Python 3.6+**
-- **Nmap** installed and accessible from the command line
-- **SearchSploit** installed (part of the Exploit-DB toolkit)
-- **Grep** (for filtering ports in Nmap output)
-- **Openpyxl** (if using Excel output, optional)
-
----
-
-## 🔧 Installation
-
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/yourusername/VulnHunter.git
-    cd VulnHunter
-    ```
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
 
 2. **Install required Python libraries**:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. **Install Nmap and SearchSploit** if you don't have them:
-    ```bash
-    sudo apt-get install nmap
-    sudo apt-get install exploitdb
-    ```
-
-4. **Create a `remove.txt` file** in the root directory to exclude unwanted services from Nmap output:
-    ```bash
-    touch remove.txt
-    ```
-    Example content for `remove.txt`:
-    ```
-    httpd
-    smbd
-    ```
-
 ---
 
 ## 🔨 Usage
 
-To start scanning a target, run VulnHunter as follows:
+Run the scanner using the following command:
 
 ```bash
-python vuln_hunter.py
+python3 src/main.py <target> -db <database>
 ```
 
----
-
-You will be prompted to enter an IP, host, or domain to scan. VulnHunter will then run two simultaneous Nmap scans:
-
-    Service detection scan: Detects running services and versions.
-    Ports scan: Displays open ports and corresponding services.
-
-Once the services and versions are detected, VulnHunter will use SearchSploit to search for known vulnerabilities associated with those services.
-## Example Output:
-```bash
-Running nmap scans on 192.168.1.1...
-
-Nmap Ports Scan (Services running on various ports):
-22/tcp  open   ssh    OpenSSH 7.9p1
-80/tcp  open   http   Apache 2.4.29
-3306/tcp open  mysql  MySQL 5.7.26
-
-Parsing nmap version scan results...
-Searching vulnerabilities for OpenSSH 7.9p1...
-Vulnerabilities found for OpenSSH 7.9p1:
-- OpenSSH 7.9p1 - Remote Code Execution (exploit/path)
-- OpenSSH < 7.9p1 - Local Privilege Escalation (exploit/path)
-
-No vulnerabilities found for Apache 2.4.29.
-```
-
----
-
-## ⚙️ Configuration
-```remove.txt```:
-This file contains a list of service substrings to exclude from the final parsed service list. Add unwanted services (e.g., ```httpd``` or ```smbd```) to the file, and VulnHunter will remove them during output parsing.
+Arguments
+```<target>```: The IP address or domain name to scan.
+```-db <database>```: Specify the vulnerability database to use (e.g., exploitdb.csv).
 
 ---
 
 ## 📝 To-Do
 
-- Implement additional output formats (JSON, CSV).
 - Add more detailed vulnerability filtering options.
 - Explore integration with external APIs for live vulnerability data.
 
