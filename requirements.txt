@@ -1,0 +1,4 @@
+colorama
+textwrap
+xml.etree.ElementTree
+concurrent.futures
