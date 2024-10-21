@@ -48,7 +48,7 @@ python3 src/main.py <target> -db <database>
 ```
 
 Arguments
-```<target>```: The IP address or domain name to scan.
+```<target>```: The IP address or domain name to scan.\n
 ```-db <database>```: Specify the vulnerability database to use (e.g., exploitdb.csv).
 
 ---
