@@ -1,8 +1,5 @@
 # VulnHunter 🔎
 
-**VulnHunter** is a powerful multi-threaded vulnerability scanning tool designed to streamline the process of identifying exposed services, their versions, and known vulnerabilities for a given IP, host, or domain. With integrated Nmap scanning and SearchSploit querying, VulnHunter provides efficient results, helping cybersecurity enthusiasts, network administrators, and penetration testers stay ahead of potential threats.
-# Comprehensive Vulnerability Scanner
-
 ## Description
 A comprehensive vulnerability scanner that utilizes Nmap and the Vulscan NSE script to identify open ports and their associated vulnerabilities. This tool supports scanning using various vulnerability databases and provides detailed output for each identified issue.
 
