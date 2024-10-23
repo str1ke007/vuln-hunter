@@ -25,8 +25,8 @@ A comprehensive vulnerability scanner that utilizes Nmap and the Vulscan NSE scr
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+   git clone https://github.com/str1ke007/vuln-hunter.git
+   cd vuln-hunter
    ```
 
 2. **Install required Python libraries**:
