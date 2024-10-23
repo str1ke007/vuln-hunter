@@ -41,7 +41,7 @@ A comprehensive vulnerability scanner that utilizes Nmap and the Vulscan NSE scr
 Run the scanner using the following command:
 
 ```bash
-python3 src/main.py <target> -db <database>
+python3 main.py <target> -db <database>
 ```
 
 Arguments
