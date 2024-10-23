@@ -7,7 +7,7 @@ from modules.web_scanner import WebScanner
 init(autoreset=True)
 
 def main():
-    parser = argparse.ArgumentParser(description=("Comprehensive Vulnerability Scanner"), epilog=textwrap.dedent(f"""
+    parser = argparse.ArgumentParser(description=("Vuln-Hunter"), epilog=textwrap.dedent(f"""
             {Fore.RESET}Example usage:
             {Fore.GREEN}/path/to/venv/python3 main.py <target_ip_or_domain> -db {Fore.YELLOW}exploitdb.csv,securityfocus.csv{Fore.RESET} | 
             {Fore.GREEN}/path/to/venv/python3 main.py <target_ip_or_domain> -v -db {Fore.YELLOW}securityfocus.csv{Fore.RESET} | 
